@@ -4,4 +4,7 @@ airflow/instalacao_airflow/airflow.db
 airflow/instalacao_airflow/airflow-webserver.pid
 airflow/instalacao_airflow/webserver_config.py
 airflow/pipelines/proj_abinbev/__pycache__/
+airflow/instalacao_airflow/dags/__pycache__/
 airflow/venv/
+airflow/pipelines/proj_abinbev/__pycache__/
+airflow/instalacao_airflow/logs/
