@@ -7,6 +7,7 @@
 - The same 'venv' needs to contain another variable named AIRFLOW_HOME pointing to the path of your airflow installation.
 - When cofiguring your airflow.cfg, you need to reset the variable dag_folder pointing to the folder named dags in the folder instalacao_airflow.
 - The classes are separated per finallity having data engineering activities.
+- For viability reasons, I'm avoiding maintaining some critical files and some unnecessary files in this repo. If you have any doubts, I can explain and show the application running in a local environment.
 
 ## Structure
 
