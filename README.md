@@ -45,7 +45,7 @@ airflow/
 - **main.py**: Contains the instances of the classes and the method calls needed to execute the pipeline.  
 - **manage_spark.py**: Contains the class and configuration to initialize and stop the spark session.
 - **transformation.py**: Contains the class to execute all the necessary transformations.
-- - **dags**: Contains the definition of the DAGs that will be used within airflow.
+- **dags**: Contains the definition of the DAGs that will be used within airflow.
 
 
 ## Classes
