@@ -52,7 +52,7 @@ airflow/
 ## Classes
 
 ### To manage spark (manage_spark.py)
-This class provides a spark session object having the option to use delta tables or not.
+This class provides a spark session object.
 
 ### Data extraction via API for testing (extraction.py)
 In this class I developed a data extraction using an API called Open Brewery DB API.
