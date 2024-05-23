@@ -1,10 +1,14 @@
 #Ignoring folders and files
-airflow/instalacao_airflow/airflow.cfg
-airflow/instalacao_airflow/airflow.db
-airflow/instalacao_airflow/airflow-webserver.pid
-airflow/instalacao_airflow/webserver_config.py
-airflow/pipelines/proj_abinbev/__pycache__/
-airflow/instalacao_airflow/dags/__pycache__/
-airflow/venv/
-airflow/pipelines/proj_abinbev/__pycache__/
-airflow/instalacao_airflow/logs/
+instalacao_airflow/airflow.cfg
+instalacao_airflow/airflow.db
+instalacao_airflow/airflow-webserver.pid
+instalacao_airflow/webserver_config.py
+pipelines/proj_abinbev/__pycache__/
+instalacao_airflow/dags/__pycache__/
+venv/
+pipelines/proj_abinbev/__pycache__/
+instalacao_airflow/logs/
+pipelines/proj_abinbev/datalake/bronze/breweries/
+pipelines/proj_abinbev/datalake/silver/breweries/
+pipelines/proj_abinbev/datalake/gold/breweries/
+instalacao_airflow/logs/
