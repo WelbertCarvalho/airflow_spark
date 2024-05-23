@@ -1,0 +1,7 @@
+#Ignoring folders and files
+airflow/instalacao_airflow/airflow.cfg
+airflow/instalacao_airflow/airflow.db
+airflow/instalacao_airflow/airflow-webserver.pid
+airflow/instalacao_airflow/webserver_config.py
+airflow/pipelines/proj_abinbev/__pycache__/
+airflow/venv/
