@@ -14,25 +14,26 @@
 ```
 airflow/
     ├───instalacao_airflow/
-    |       ├──dags/
-    |       |   └──dag_extract_breweries.py
-    |       └──logs/
-    |           ├──dag_id=pipeline_abinbev/
-    |           ├──dag_processor_manager/
-    |           └──scheduler/
+    |       └──dags/
+    |           └──dag_extract_breweries.py
+    |
     ├───pipelines/
     |       └──proj_abinbev/
     |           ├───datalake/
     |           |     ├──bronze/
     |           |     ├──silver/
     |           |     └──gold/
+    |           |
     |           ├───extraction.py/
     |           ├───loading.py/
     |           ├───main.py/
     |           ├───manage_spark.py/
-    |           ├───transformation.py
-    |           └───dags/
-    |               └──dag_extract_breweries.py
+    |           └───transformation.py
+    |          
+    ├───tests/
+    |       ├──__init__.py/
+    |       └──test_project_ambev.py/
+    |
     ├───.gitignore/
     ├───README.md/
     └───requirements.txt
@@ -40,13 +41,13 @@ airflow/
 
 ## Explanation:
 
+- **dags**: Contains the definition of the DAGs that will be used within airflow.
 - **datalake**: Contains all the files that compose the datalake.
 - **extraction.py**: Contains the class for extract data from the API.
 - **loading.py**: Contains the class to load data after transformed.
 - **main.py**: Contains the instances of the classes and the method calls needed to execute the pipeline.  
 - **manage_spark.py**: Contains the class and configuration to initialize and stop the spark session.
 - **transformation.py**: Contains the class to execute all the necessary transformations.
-- **dags**: Contains the definition of the DAGs that will be used within airflow.
 
 
 ## Classes
