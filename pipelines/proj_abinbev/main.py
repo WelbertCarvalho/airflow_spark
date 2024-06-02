@@ -91,7 +91,7 @@ def pipeline_abinbev(url: str, path_bronze: str, path_silver: str, path_gold: st
     data_loader_obj_silver.create_table(
         dataframe_to_save = silver_dataframe,
         format = 'parquet',
-        partition = 'brewery_type'
+        partition = 'state'
     )
 
     print(f'Path: {data_loader_obj_silver._path_to_save}')
@@ -117,7 +117,7 @@ def pipeline_abinbev(url: str, path_bronze: str, path_silver: str, path_gold: st
     data_loader_obj_gold.create_table(
         dataframe_to_save = gold_dataframe,
         format = 'parquet',
-        partition = 'brewery_type'
+        partition = 'state'
     )
 
     print(f'Path: {data_loader_obj_gold._path_to_save}')

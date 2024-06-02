@@ -38,3 +38,64 @@ class DataTransformer():
 
         return spark_dataframe
     
+
+if __name__ == '__main__':
+    from pyspark.sql.types import StructType, StructField, StringType
+
+    from extraction import DataExtractor
+    from manage_spark import ManageSpark
+
+    extract_obj = DataExtractor(
+        project_name = 'AbInbev project',
+        project_url = 'https://api.openbrewerydb.org/breweries'
+    )
+
+    data = extract_obj.get_json_data()
+    data_flattened = extract_obj.flatten_list(list_to_be_flattened = data['json_data'])
+    tot_items = extract_obj.get_tot_items(dict_json_data = data['json_data'])
+
+    print(f"Total pages: {data['page']} | Total Items: {tot_items}")
+
+    print('Initializing transformation ---------------------------------------------------------')
+
+    schema = StructType([
+        StructField("id", StringType(), True),
+        StructField("name", StringType(), True),
+        StructField("brewery_type", StringType(), True),
+        StructField("address_1", StringType(), True),
+        StructField("address_2", StringType(), True),
+        StructField("address_3", StringType(), True),
+        StructField("city", StringType(), True),
+        StructField("state_province", StringType(), True),
+        StructField("postal_code", StringType(), True),
+        StructField("country", StringType(), True),
+        StructField("longitude", StringType(), True),
+        StructField("latitude", StringType(), True),
+        StructField("phone", StringType(), True),
+        StructField("website_url", StringType(), True),
+        StructField("state", StringType(), True),
+        StructField("street", StringType(), True)
+    ])
+
+    manager_spark_obj = ManageSpark(
+        app_name = 'Data Engineering'
+    )
+
+    print(manager_spark_obj)
+    spark_session = manager_spark_obj.start_spark()
+
+    spark_session.sparkContext.setLogLevel('FATAL')
+
+    data_transformer_obj = DataTransformer(
+        short_description = 'Creating the spark dataframe for raw layer',
+        layer = 'bronze'
+    )
+
+    bronze_dataframe = data_transformer_obj.spark_df_using_list(
+        data_list = data_flattened,
+        schema = schema,
+        spark_session = spark_session
+    )
+
+    bronze_dataframe.show()
+    
