@@ -19,6 +19,13 @@ def pipeline_abinbev(url: str, path_bronze: str, path_silver: str, path_gold: st
 
     data = extract_obj.get_json_data()
 
+    data_flattened = extract_obj.flatten_list(list_to_be_flattened = data['json_data'])
+    tot_items = extract_obj.get_tot_items(dict_json_data = data['json_data'])
+
+    print(f"Total pages: {data['page']} | Total Items: {tot_items}")
+
+    print('Initializing transformation ---------------------------------------------------------')
+
     schema = StructType([
         StructField("id", StringType(), True),
         StructField("name", StringType(), True),
@@ -53,7 +60,7 @@ def pipeline_abinbev(url: str, path_bronze: str, path_silver: str, path_gold: st
     )
 
     bronze_dataframe = data_transformer_obj.spark_df_using_list(
-        data_list = data,
+        data_list = data_flattened,
         schema = schema,
         spark_session = spark_session
     )

@@ -25,7 +25,7 @@ airflow/
     |           |     └──gold/
     |           |
     |           ├───extraction.py/
-    |           ├───loading.py/
+    |           ├───loading.py/ 
     |           ├───main.py/
     |           ├───manage_spark.py/
     |           └───transformation.py

@@ -9,8 +9,8 @@ from pipelines.proj_abinbev.main import pipeline_abinbev
 
 with DAG(
     'pipeline_abinbev',
-    start_date = pendulum.datetime(2024, 5, 20, tz = "America/Sao_Paulo"),
-    schedule_interval = '0 18 * * *',
+    start_date = pendulum.datetime(2024, 6, 7, tz = "America/Sao_Paulo"),
+    schedule_interval = '0 15 * * *',
     catchup = False
 ) as dag:
 
