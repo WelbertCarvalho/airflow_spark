@@ -8,7 +8,5 @@ instalacao_airflow/dags/__pycache__/
 venv/
 pipelines/proj_abinbev/__pycache__/
 instalacao_airflow/logs/
-pipelines/proj_abinbev/datalake/bronze/breweries/
-pipelines/proj_abinbev/datalake/silver/breweries/
-pipelines/proj_abinbev/datalake/gold/breweries/
+pipelines/proj_abinbev/datalake/
 instalacao_airflow/logs/
