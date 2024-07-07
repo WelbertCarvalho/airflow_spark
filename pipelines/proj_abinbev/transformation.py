@@ -11,13 +11,27 @@ class DataTransformer():
     def __str__(self) -> str:
         return f'Description: {self._short_description} \nLayer: {self._layer}'
 
-    def spark_df_using_list(self, data_list: list, schema: StructType, spark_session: SparkSession) -> DataFrame:
+    def spark_df_using_json(self, file_path: str, spark_session: SparkSession, schema: StructType = None) -> DataFrame:  
         '''
-        This method creates a Spark Dataframe, receiving a list of records and a Spark Session.
+        This method creates a Spark Dataframe, receiving a json and a Spark Session.
         '''
-        spark_dataframe = spark_session.createDataFrame(data_list, schema)
+        if schema:
+            spark_dataframe = spark_session.read.schema(schema).json(file_path)
+        else:
+            spark_dataframe = spark_session.read.json(file_path)
+        return spark_dataframe
+    
+    def spark_df_using_parquet(self, file_path: str, spark_session: SparkSession, schema: StructType = None) -> DataFrame:  
+        '''
+        This method creates a Spark Dataframe, receiving parquet files and a Spark Session.
+        '''
+        if schema:
+            spark_dataframe = spark_session.read.schema(schema).parquet(file_path)
+        else:
+            spark_dataframe = spark_session.read.parquet(file_path)
         return spark_dataframe
 
+    
     def deduplicate_data(self, spark_dataframe: DataFrame, column_name_ref: str, column_to_orderby: str) -> DataFrame:
         '''
         This method deduplicate data using an specific column, receiving an Spark DataFrame and the column name as a string.
